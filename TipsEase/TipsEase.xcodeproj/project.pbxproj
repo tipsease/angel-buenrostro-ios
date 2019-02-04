@@ -54,6 +54,7 @@
 		A25CD70C2208A03F0082F4EE /* TipsEase */ = {
 			isa = PBXGroup;
 			children = (
+				A25CD71F2208A3400082F4EE /* Models */,
 				A25CD70D2208A03F0082F4EE /* AppDelegate.swift */,
 				A25CD70F2208A03F0082F4EE /* ViewController.swift */,
 				A25CD7112208A03F0082F4EE /* Main.storyboard */,
@@ -62,6 +63,13 @@
 				A25CD7192208A0400082F4EE /* Info.plist */,
 			);
 			path = TipsEase;
+			sourceTree = "<group>";
+		};
+		A25CD71F2208A3400082F4EE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

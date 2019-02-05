@@ -20,14 +20,12 @@ struct Tippers : Codable {
 
 struct Tipper: Codable, Equatable {
     let id: Int
-    let firstName, lastName, email: String
-    let photoURL: String
+    let first_name, last_name, email: String
     
-    init(id: Int, firstName: String, lastName: String, email: String, photoURL: String) {
+    init(id: Int, first_name: String, last_name: String, email: String) {
         self.id = id
-        self.firstName = firstName
-        self.lastName = lastName
+        self.first_name = first_name
+        self.last_name = last_name
         self.email = email
-        self.photoURL = photoURL
     }
 }

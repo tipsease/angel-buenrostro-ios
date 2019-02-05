@@ -13,6 +13,8 @@
 		A25CD7152208A0400082F4EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A25CD7142208A0400082F4EE /* Assets.xcassets */; };
 		A25CD7182208A0400082F4EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25CD7162208A0400082F4EE /* LaunchScreen.storyboard */; };
 		A25CD7222208FEBF0082F4EE /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25CD7212208FEBF0082F4EE /* TipViewController.swift */; };
+		A25CD725220A07C10082F4EE /* Tipper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25CD724220A07C00082F4EE /* Tipper.swift */; };
+		A25CD727220A07CF0082F4EE /* Tippee.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25CD726220A07CF0082F4EE /* Tippee.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		A25CD7172208A0400082F4EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A25CD7192208A0400082F4EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A25CD7212208FEBF0082F4EE /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
+		A25CD724220A07C00082F4EE /* Tipper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tipper.swift; sourceTree = "<group>"; };
+		A25CD726220A07CF0082F4EE /* Tippee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tippee.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			children = (
 				A25CD71F2208A3400082F4EE /* Models */,
 				A25CD7202208F6C00082F4EE /* Views */,
+				A25CD723220913140082F4EE /* Controllers */,
 				A25CD7112208A03F0082F4EE /* Main.storyboard */,
 				A25CD7142208A0400082F4EE /* Assets.xcassets */,
 				A25CD7162208A0400082F4EE /* LaunchScreen.storyboard */,
@@ -70,6 +75,8 @@
 		A25CD71F2208A3400082F4EE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A25CD724220A07C00082F4EE /* Tipper.swift */,
+				A25CD726220A07CF0082F4EE /* Tippee.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -81,6 +88,13 @@
 				A25CD7212208FEBF0082F4EE /* TipViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A25CD723220913140082F4EE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,8 +169,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A25CD7102208A03F0082F4EE /* LoginViewController.swift in Sources */,
+				A25CD727220A07CF0082F4EE /* Tippee.swift in Sources */,
 				A25CD7222208FEBF0082F4EE /* TipViewController.swift in Sources */,
 				A25CD70E2208A03F0082F4EE /* AppDelegate.swift in Sources */,
+				A25CD725220A07C10082F4EE /* Tipper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

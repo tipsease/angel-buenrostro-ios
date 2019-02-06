@@ -17,17 +17,17 @@ struct Tippees : Codable {
 }
 
 struct Tippee: Codable, Equatable {
-    let id, start_date: Int
-    let first_name, last_name, email, photo_url, tagline, qr_url: String
+    var id: Int? = nil
+    var start_date: Date
+    var first_name, last_name, email, tagline: String
+    var photo_url: String? = nil
+    var qr_url: String? = nil
     
-    init(id: Int, start_date: Int, first_name: String, last_name: String, email: String, photo_url: String, tagline: String, qr_url: String) {
-        self.id = id
+    init(start_date: Date, first_name: String, last_name: String, email: String, tagline: String) {
         self.start_date = start_date
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
-        self.photo_url = photo_url
         self.tagline = tagline
-        self.qr_url = qr_url
     }
 }

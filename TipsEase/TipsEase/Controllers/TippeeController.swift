@@ -8,6 +8,9 @@
 
 import Foundation
 
+
+// authentication dummy data:
+
 class TippeeController: Codable {
     
     let baseURL = URL(string: "https://tipsease-david-freitag-backend.herokuapp.com/api/tippees/")!
@@ -15,8 +18,8 @@ class TippeeController: Codable {
     var tippees: [Tippee] = []
     var tippee: Tippee?
     
-    func createTippee(id: Int, start_date: Int, first_name: String, last_name: String, email: String, photo_url: String, tagline: String, qr_url: String) -> Tippee{
-        let tippee = Tippee(id: id, start_date: start_date, first_name: first_name, last_name: last_name, email: email, photo_url: photo_url, tagline: tagline, qr_url: qr_url)
+    func createTippee(start_date: Date, first_name: String, last_name: String, email: String, tagline: String) -> Tippee{
+        let tippee = Tippee(start_date: start_date, first_name: first_name, last_name: last_name, email: email, tagline: tagline)
         self.tippees.append(tippee)
         
         var request = URLRequest(url: baseURL)
@@ -25,9 +28,11 @@ class TippeeController: Codable {
         
         let encoder = JSONEncoder()
         let postData = try! encoder.encode(tippee)
+        request.httpBody = postData
+        print("This is the Tippee PostData sent to db: \(postData)")
         
         URLSession.shared.dataTask(with: request){
-            (data, _, error) in
+            (data, response, error) in
             if let error = error {
                 print(error)
                 return
@@ -37,19 +42,11 @@ class TippeeController: Codable {
                 print("data not found")
                 return
             }
-            do {
-                let encoder = JSONEncoder()
-                let tippee = try encoder.encode(data)
-            } catch {
-                
-            }
-            
-        }
+            let httpResponse = response as? HTTPURLResponse
+            print(httpResponse)
+        }.resume()
+        print("tippee was sent to db")
         return tippee
-    }
-    
-    func deleteTippee(){
-        
     }
     
     func allTippees(completion: @escaping(Error?)-> Void){
@@ -113,5 +110,13 @@ class TippeeController: Codable {
                 return
             }
             }.resume()
+    }
+    
+    func updateTippee(){
+        
+    }
+    
+    func deleteTippee(){
+        
     }
 }

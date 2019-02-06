@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1gw-fl-Ayt">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,6 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="TipsEase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -88,6 +87,7 @@
                         <outlet property="userNameTextField" destination="p1g-Ib-flZ" id="dsr-X1-fdt"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="40.799999999999997" y="-7.389162561576355"/>
         </scene>
@@ -211,18 +211,30 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLf-WA-I7D">
                                                 <rect key="frame" x="0.0" y="0.0" width="66.333333333333329" height="30"/>
                                                 <state key="normal" title="5%"/>
+                                                <connections>
+                                                    <action selector="fivePercentTapped:" destination="1gw-fl-Ayt" eventType="touchUpInside" id="fIU-nf-Ykh"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PhH-gj-d7W">
                                                 <rect key="frame" x="90.333333333333314" y="0.0" width="66.666666666666686" height="30"/>
                                                 <state key="normal" title="10%"/>
+                                                <connections>
+                                                    <action selector="tenPercentTapped:" destination="1gw-fl-Ayt" eventType="touchUpInside" id="Ode-57-OoV"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lqd-oY-UCf">
                                                 <rect key="frame" x="181" y="0.0" width="66.333333333333314" height="30"/>
                                                 <state key="normal" title="15%"/>
+                                                <connections>
+                                                    <action selector="fifteenPercentTapped:" destination="1gw-fl-Ayt" eventType="touchUpInside" id="wnL-WN-dtD"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6n-5K-6fX">
                                                 <rect key="frame" x="271.33333333333331" y="0.0" width="66.333333333333314" height="30"/>
                                                 <state key="normal" title="20%"/>
+                                                <connections>
+                                                    <action selector="twentyPercentTapped:" destination="1gw-fl-Ayt" eventType="touchUpInside" id="9Gg-Le-CpP"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -259,6 +271,8 @@
                     </view>
                     <connections>
                         <outlet property="confirmTipButton" destination="e8b-HT-SEy" id="chW-Yn-Nrz"/>
+                        <outlet property="tipTextField" destination="jOP-2T-vBm" id="em9-YT-7rT"/>
+                        <outlet property="totalBillTextField" destination="vrU-yw-oTs" id="bJW-2n-Erd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o7p-aP-El7" userLabel="First Responder" sceneMemberID="firstResponder"/>

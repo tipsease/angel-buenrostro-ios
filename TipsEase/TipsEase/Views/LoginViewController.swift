@@ -25,8 +25,13 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tippeeController.allTippees { (error) in
+            print("Tippees are: \(self.tippeeController.tippees.count)")
+        }
         setUp()
-        tipperController.createTipper(first_name: "Angel", last_name: "Buenrostro", email: "idk@gmail.com")
+//        tipperController.createTipper(first_name: "Angel", last_name: "Buenrostro", email: "idk@gmail.com")
+        let currentDate = Date()
+//        tippeeController.createTippee(start_date: currentDate, first_name: "Angel", last_name: "Buenrostro", email: "idk@gmail.com", tagline: "Yoo this is a test")
         tipperController.allTippers { (error) in
             print("\(self.tipperController.tippers.count)")
         }

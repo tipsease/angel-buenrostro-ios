@@ -19,11 +19,11 @@ struct Tippers : Codable {
 }
 
 struct Tipper: Codable, Equatable {
-    let id: Int
-    let first_name, last_name, email: String
+    var id: Int? = nil
+    var first_name, last_name, email: String
+    var photo_url: String? = nil
     
-    init(id: Int, first_name: String, last_name: String, email: String) {
-        self.id = id
+    init(first_name: String, last_name: String, email: String) {
         self.first_name = first_name
         self.last_name = last_name
         self.email = email

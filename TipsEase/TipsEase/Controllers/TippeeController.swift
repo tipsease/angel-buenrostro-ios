@@ -1,5 +1,5 @@
 //
-//  TipperController.swift
+//  TippeeController.swift
 //  TipsEase
 //
 //  Created by Angel Buenrostro on 2/5/19.
@@ -8,28 +8,26 @@
 
 import Foundation
 
-class TipperController: Codable {
+class TippeeController: Codable {
     
-    let baseURL = URL(string: "https://tipsease-david-freitag-backend.herokuapp.com/api/tippers/")!
+    let baseURL = URL(string: "https://tipsease-david-freitag-backend.herokuapp.com/api/tippees/")!
     
-    var tippers: [Tipper] = []
-    var tipper: Tipper?
+    var tippees: [Tippee] = []
+    var tippee: Tippee?
     
-    func createTipper(first_name: String, last_name: String, email: String) -> Tipper{
-        let tipper = Tipper(first_name: first_name, last_name: last_name, email: email)
-        self.tippers.append(tipper)
+    func createTippee(id: Int, start_date: Int, first_name: String, last_name: String, email: String, photo_url: String, tagline: String, qr_url: String) -> Tippee{
+        let tippee = Tippee(id: id, start_date: start_date, first_name: first_name, last_name: last_name, email: email, photo_url: photo_url, tagline: tagline, qr_url: qr_url)
+        self.tippees.append(tippee)
         
         var request = URLRequest(url: baseURL)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let encoder = JSONEncoder()
-        let postData = try! encoder.encode(tipper)
-        request.httpBody = postData
-        print("\(postData)")
+        let postData = try! encoder.encode(tippee)
         
         URLSession.shared.dataTask(with: request){
-            (data, response, error) in
+            (data, _, error) in
             if let error = error {
                 print(error)
                 return
@@ -39,19 +37,22 @@ class TipperController: Codable {
                 print("data not found")
                 return
             }
-            let httpResponse = response as? HTTPURLResponse
-            print(httpResponse)
+            do {
+                let encoder = JSONEncoder()
+                let tippee = try encoder.encode(data)
+            } catch {
+                
+            }
             
-        }.resume()
-        print("tipper was sent to the DB")
-        return tipper
+        }
+        return tippee
     }
     
-    func deleteTipper(){
+    func deleteTippee(){
         
     }
     
-    func allTippers(completion: @escaping(Error?)-> Void){
+    func allTippees(completion: @escaping(Error?)-> Void){
         let url = baseURL
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -70,18 +71,18 @@ class TipperController: Codable {
             }
             do {
                 let decoder = JSONDecoder()
-                let tipper = try decoder.decode([Tipper].self, from: data)
-                self.tippers = tipper
+                let tippee = try decoder.decode([Tippee].self, from: data)
+                self.tippees = tippee
                 completion(nil)
             } catch {
                 print("error decoding received data: \(error)")
                 completion(error)
                 return
-        }
-    }.resume()
+            }
+            }.resume()
     }
     
-    func searchTipper(id: Int, completion: @escaping(Error?)-> Void){
+    func searchTippee(id: Int, completion: @escaping(Error?)-> Void){
         let url = baseURL.appendingPathComponent(String(id))
         print(url)
         var request = URLRequest(url: url)
@@ -103,14 +104,14 @@ class TipperController: Codable {
             do {
                 let decoder = JSONDecoder()
                 print(data)
-                let tipper = try decoder.decode([Tipper].self, from: data)
-                self.tippers = tipper
+                let tippee = try decoder.decode([Tippee].self, from: data)
+                self.tippees = tippee
                 completion(nil)
             } catch {
                 print("error decoding received data: \(error)")
                 completion(error)
                 return
             }
-        }.resume()
+            }.resume()
     }
 }

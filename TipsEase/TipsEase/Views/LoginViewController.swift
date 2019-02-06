@@ -9,7 +9,10 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
+    let tipperController = TipperController()
+    let tippeeController = TippeeController()
+    
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -23,6 +26,22 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+        tipperController.createTipper(first_name: "Angel", last_name: "Buenrostro", email: "idk@gmail.com")
+        tipperController.allTippers { (error) in
+            print("\(self.tipperController.tippers.count)")
+        }
+        tipperController.searchTipper(id: 1) { (error) in
+            print("Tipper Controller data is: \(self.tipperController.tippers)")
+            print("Id 1 Name is : \(self.tipperController.tippers[0].first_name)")
+            
+            
+        
+        }
+        tippeeController.searchTippee(id: 1) { (error) in
+            print("Tippee Controller data is: \(self.tippeeController.tippees[0])")
+            print("Id 1 Tippee is: \(self.tippeeController.tippees[0].first_name)")
+        
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 

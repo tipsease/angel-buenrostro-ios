@@ -10,7 +10,11 @@ import UIKit
 
 class TipViewController: UIViewController {
     
-    let tipperController = TipperController()
+    var tipperController: TipperController?
+    var tippeeController: TippeeController?
+    var token: Token?
+    var tipper: Tipper?
+    var tippee: Tippee?
 
     @IBOutlet weak var tipTextField: UITextField!
     @IBOutlet weak var confirmTipButton: UIButton!
@@ -18,20 +22,29 @@ class TipViewController: UIViewController {
         print("confirm button tapped")
     }
     @IBOutlet weak var totalBillTextField: UITextField!
+    
     @IBAction func fivePercentTapped(_ sender: UIButton) {
         if totalBillTextField.text != nil {
             tipTextField.text = String(calculateTip(totalBill: totalBillTextField.text!, percentage: 0.05))
         }
     }
     @IBAction func tenPercentTapped(_ sender: Any) {
+        if totalBillTextField.text != nil {
+            tipTextField.text = String(calculateTip(totalBill: totalBillTextField.text!, percentage: 0.10))
+        }
     }
     @IBAction func fifteenPercentTapped(_ sender: Any) {
+        if totalBillTextField.text != nil {
+            tipTextField.text = String(calculateTip(totalBill: totalBillTextField.text!, percentage: 0.15))
+        }
     }
     @IBAction func twentyPercentTapped(_ sender: Any) {
+        if totalBillTextField.text != nil {
+            tipTextField.text = String(calculateTip(totalBill: totalBillTextField.text!, percentage: 0.20))
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        tipperController.createTipperAuthentication(email: "kl.hawaii3e243@gmail.com", password: "test", tipperBoolean: true)
         setUp()
         // Do any additional setup after loading the view.
     }
@@ -56,6 +69,13 @@ extension TipViewController {
     
     func calculateTip(totalBill: String, percentage: Double) -> Double {
         let bill = Double(totalBill)
-        return (bill!*percentage)
+        return (bill!*percentage).rounded(digits: 2)
+    }
+}
+
+extension Double {
+    func rounded(digits: Int) -> Double {
+        let multiplier = pow(10.0, Double(digits))
+        return (self * multiplier).rounded() / multiplier
     }
 }

@@ -15,10 +15,11 @@ class TipperController: Codable {
     
     var tippers: [Tipper] = []
     var tipper: Tipper?
+    var token: Token?
     
     
-    func createTipperAuthentication(email: String, password: String, tipperBoolean: Bool) -> TipperTest{
-        let tipper = TipperTest(email: email, password: password, tipperBoolean: tipperBoolean)
+    func createTipperAuthentication(email: String, password: String, tipperBoolean: Bool) -> Void{
+        let tipperAuthentication = TipperTest(email: email, password: password, tipperBoolean: tipperBoolean)
         print("tipper")
         
         var request = URLRequest(url: baseURL)
@@ -27,7 +28,7 @@ class TipperController: Codable {
         
         let encoder = JSONEncoder()
         
-        let postData = try! encoder.encode(tipper)
+        let postData = try! encoder.encode(tipperAuthentication)
         
         //    let postData = try! encoder.encode(tipper)
         request.httpBody = postData
@@ -47,19 +48,19 @@ class TipperController: Codable {
             print("The data unDecoded is: \(data)")
             let decoder = JSONDecoder()
             let dataDecoded = try! decoder.decode(Token.self, from: data)
+            self.token = dataDecoded
             print("The dataDecoded is: \(dataDecoded)")
             let httpResponse = response as? HTTPURLResponse
             print("This is the response:\(httpResponse!)")
             
             }.resume()
         print("tipper was sent to the DB")
-        return tipper
     }
     
     
     
-    func createTipper(first_name: String, last_name: String, email: String) -> Tipper{
-        let tipper = Tipper(first_name: first_name, last_name: last_name, email: email)
+    func createTipper(first_name: String, last_name: String, email: String, password: String) -> Tipper{
+        let tipper = Tipper(first_name: first_name, last_name: last_name, email: email, password: password)
         self.tippers.append(tipper)
         
         var request = URLRequest(url: baseURL)

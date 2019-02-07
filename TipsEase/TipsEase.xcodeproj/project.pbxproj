@@ -18,6 +18,8 @@
 		A25CD729220A0BD70082F4EE /* TipperController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25CD728220A0BD70082F4EE /* TipperController.swift */; };
 		A25CD72B220A4B400082F4EE /* TippeeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25CD72A220A4B400082F4EE /* TippeeController.swift */; };
 		A28116AD220B5895003C47D7 /* tipAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28116AC220B5895003C47D7 /* tipAuthentication.swift */; };
+		A28116AF220B9546003C47D7 /* TippeeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28116AE220B9546003C47D7 /* TippeeTableViewController.swift */; };
+		A28116B7220C8047003C47D7 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28116B6220C8047003C47D7 /* AccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		A25CD728220A0BD70082F4EE /* TipperController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipperController.swift; sourceTree = "<group>"; };
 		A25CD72A220A4B400082F4EE /* TippeeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TippeeController.swift; sourceTree = "<group>"; };
 		A28116AC220B5895003C47D7 /* tipAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tipAuthentication.swift; sourceTree = "<group>"; };
+		A28116AE220B9546003C47D7 /* TippeeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TippeeTableViewController.swift; sourceTree = "<group>"; };
+		A28116B6220C8047003C47D7 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				A25CD70F2208A03F0082F4EE /* LoginViewController.swift */,
+				A28116AE220B9546003C47D7 /* TippeeTableViewController.swift */,
+				A28116B6220C8047003C47D7 /* AccountViewController.swift */,
 				A25CD7212208FEBF0082F4EE /* TipViewController.swift */,
 			);
 			path = Views;
@@ -177,11 +183,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A28116AF220B9546003C47D7 /* TippeeTableViewController.swift in Sources */,
 				A25CD7102208A03F0082F4EE /* LoginViewController.swift in Sources */,
 				A25CD727220A07CF0082F4EE /* Tippee.swift in Sources */,
 				A25CD7222208FEBF0082F4EE /* TipViewController.swift in Sources */,
 				A25CD70E2208A03F0082F4EE /* AppDelegate.swift in Sources */,
 				A25CD725220A07C10082F4EE /* Tipper.swift in Sources */,
+				A28116B7220C8047003C47D7 /* AccountViewController.swift in Sources */,
 				A25CD729220A0BD70082F4EE /* TipperController.swift in Sources */,
 				A25CD72B220A4B400082F4EE /* TippeeController.swift in Sources */,
 				A28116AD220B5895003C47D7 /* tipAuthentication.swift in Sources */,

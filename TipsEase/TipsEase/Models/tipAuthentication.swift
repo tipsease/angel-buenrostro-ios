@@ -9,14 +9,14 @@
 import Foundation
 
 struct TipperAuthenticationTest : Codable {
-    var tipperArray : [TipperTest]
+    var tipperArray : [TipperLogin]
     
-    init(tipperArray : [TipperTest]){
+    init(tipperArray : [TipperLogin]){
         self.tipperArray = tipperArray
     }
 }
 
-struct TipperTest: Codable, Equatable {
+struct TipperLogin: Codable, Equatable {
     var email: String
     var password: String
     var tipperBoolean : Bool
@@ -34,5 +34,33 @@ struct Token: Codable, Equatable {
     
     init(token: String){
         self.token = token
+    }
+}
+
+struct Tip: Codable, Equatable {
+    var tipper_id: Int
+    var amount: Double
+    var date: Date
+    
+    init(tipper_id: Int, amount: Double, date: Date) {
+        self.tipper_id = tipper_id
+        self.amount = amount
+        self.date = date
+    }
+}
+
+struct loginResponse: Codable, Equatable {
+    var success, token, first_name, last_name, photo_url, email, role: String
+    var id: Int?
+    var photo_public_id: Int?
+    
+    init(success: String, token: String, first_name: String, last_name: String, photo_url: String, email: String, role: String) {
+        self.success = success
+        self.token = token
+        self.first_name = first_name
+        self.last_name = last_name
+        self.photo_url = photo_url
+        self.email = email
+        self.role = role
     }
 }

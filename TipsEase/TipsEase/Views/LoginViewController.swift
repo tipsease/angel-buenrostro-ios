@@ -10,24 +10,39 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    let tipperController = TipperController()
-    let tippeeController = TippeeController()
+    var tipperController = TipperController()
+    var tippeeController = TippeeController()
+    var tipper: Tipper? = nil
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBAction func loginButtonTapped(_ sender: UIButton) {
+//        tipperController.loginTipper(email: userNameTextField.text!, password: passwordTextField.text!, tipperBoolean: true)
     }
     @IBOutlet weak var createAccountButton: UIButton!
     @IBAction func createAccountButtonTapped(_ sender: Any) {
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        DispatchQueue.main.async {
+            
+            if let userLogin = UserDefaults.standard.object(forKey: "login"){
+                let decoder = JSONDecoder()
+                if let loginTipper = try? decoder.decode(Tipper.self, from: userLogin as! Data) {
+                
+                self.tipper = loginTipper
+            }
+        }
+    }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tippeeController.allTippees { (error) in
-            print("Tippees are: \(self.tippeeController.tippees.count)")
-        }
+        
+        tipperController.loginTipper(email: "test@test.test3", password: "testingpassword", tipperBoolean: true)
+        
         setUp()
 //        tipperController.createTipper(first_name: "Angel", last_name: "Buenrostro", email: "idk@gmail.com")
         let currentDate = Date()
@@ -37,7 +52,7 @@ class LoginViewController: UIViewController {
         }
         tipperController.searchTipper(id: 1) { (error) in
             print("Tipper Controller data is: \(self.tipperController.tippers)")
-            print("Id 1 Name is : \(self.tipperController.tippers[0].first_name)")
+//            print("Id 1 Name is : \(self.tipperController.tippers[0].first_name)")
             
             
         
@@ -53,6 +68,14 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         userNameTextField.becomeFirstResponder()
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! TippeeTableViewController
+        destinationVC.tipperController = self.tipperController
+        destinationVC.tipper = self.tipper
+        
     }
 }
 

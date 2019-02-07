@@ -11,18 +11,20 @@ import Foundation
 class TipperController: Codable {
     
     // changed to authentication endPoint
-    let baseURL = URL(string: "https://tipsease-backend.herokuapp.com/api/login")!
+    let baseURL = URL(string: "https://tipsease-backend.herokuapp.com/api/tippers")!
     
     var tippers: [Tipper] = []
     var tipper: Tipper?
     var token: Token?
+    var tips: [Tip] = []
     
     
-    func createTipperAuthentication(email: String, password: String, tipperBoolean: Bool) -> Void{
-        let tipperAuthentication = TipperTest(email: email, password: password, tipperBoolean: tipperBoolean)
+    func loginTipper(email: String, password: String, tipperBoolean: Bool) -> Void{
+        let tipperAuthentication = TipperLogin(email: email, password: password, tipperBoolean: tipperBoolean)
         print("tipper")
-        
-        var request = URLRequest(url: baseURL)
+        var url = baseURL
+        url.appendPathComponent("login")
+        var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
@@ -45,11 +47,11 @@ class TipperController: Codable {
                 print("data not found")
                 return
             }
-            print("The data unDecoded is: \(data)")
-            let decoder = JSONDecoder()
-            let dataDecoded = try! decoder.decode(Token.self, from: data)
-            self.token = dataDecoded
-            print("The dataDecoded is: \(dataDecoded)")
+//            print("The data unDecoded is: \(data)")
+//            let decoder = JSONDecoder()
+//            let dataDecoded = try! decoder.decode(loginResponse.self, from: data)
+//            self.tipper = Tipper(first_name: dataDecoded.first_name, last_name: dataDecoded.last_name, email: dataDecoded.email)
+//            print("The dataDecoded is: \(dataDecoded)")
             let httpResponse = response as? HTTPURLResponse
             print("This is the response:\(httpResponse!)")
             
@@ -59,10 +61,10 @@ class TipperController: Codable {
     
     
     
-    func createTipper(first_name: String, last_name: String, email: String, password: String) -> Tipper{
-        let tipper = Tipper(first_name: first_name, last_name: last_name, email: email, password: password)
+    func createTipper(first_name: String, last_name: String, email: String) -> Tipper{
+        let tipper = Tipper(first_name: first_name, last_name: last_name, email: email)
         self.tippers.append(tipper)
-        
+        var url = baseURL.appendingPathComponent("tippers")
         var request = URLRequest(url: baseURL)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -112,6 +114,7 @@ class TipperController: Codable {
             do {
                 let decoder = JSONDecoder()
                 let tipper = try decoder.decode([Tipper].self, from: data)
+                print("tipper Count is: \(tipper.count)")
                 self.tippers = tipper
                 completion(nil)
             } catch {
@@ -122,8 +125,43 @@ class TipperController: Codable {
     }.resume()
     }
     
+    
+    func searchTips(id: Int, completion: @escaping(Error?)-> Void){
+        let url = baseURL.appendingPathComponent("tippers").appendingPathComponent(String(id)).appendingPathComponent("tips")
+        print(url)
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request){ (data, _, error) in
+            if let error = error {
+                print(error)
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                print("Error. No data returned")
+                completion(error)
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                print(data)
+                let tips = try decoder.decode([Tip].self, from: data)
+                self.tips = tips
+                print("The tips are!:\(self.tips)")
+                completion(nil)
+            } catch {
+                print("error decoding received data: \(error)")
+                completion(error)
+                return
+            }
+            }.resume()
+    }
+    
     func searchTipper(id: Int, completion: @escaping(Error?)-> Void){
-        let url = baseURL.appendingPathComponent(String(id))
+        let url = baseURL.appendingPathComponent("tippers").appendingPathComponent(String(id))
         print(url)
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -152,11 +190,12 @@ class TipperController: Codable {
                 completion(error)
                 return
             }
-        }.resume()
+            }.resume()
     }
     
     func updateTipper(id: Int, first_name: String?, last_name: String?, email: String?, photo_url: String?){
         var url = baseURL
+        url.appendPathComponent("tippers")
         url.appendPathComponent(String(id))
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"

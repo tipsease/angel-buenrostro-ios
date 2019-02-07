@@ -172,20 +172,66 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cPR-vf-CRN">
+                                <rect key="frame" x="37.666666666666657" y="380.66666666666669" width="300" height="140.00000000000006"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="S5i-2m-0Qm">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="102"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ewp-uq-0zq">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e6V-uf-LY7">
+                                                <rect key="frame" x="0.0" y="36" width="300" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gCw-X8-8a2">
+                                                <rect key="frame" x="0.0" y="72" width="300" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxZ-4z-wRu">
+                                        <rect key="frame" x="0.0" y="110" width="300" height="30"/>
+                                        <color key="backgroundColor" red="0.25055837780000001" green="0.64624881069999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Edit Profile">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="editProfileButtonTapped:" destination="62R-54-qTT" eventType="touchUpInside" id="1XP-Cb-axQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="dvc-o8-9bp" firstAttribute="centerX" secondItem="Zp4-r9-aEp" secondAttribute="centerX" id="2p6-GI-rp7"/>
                             <constraint firstItem="dvc-o8-9bp" firstAttribute="height" secondItem="7bd-L0-rGz" secondAttribute="height" multiplier="1/3" id="3hk-V6-BLr"/>
+                            <constraint firstItem="cPR-vf-CRN" firstAttribute="centerX" secondItem="Zp4-r9-aEp" secondAttribute="centerX" id="6nr-fH-6YN"/>
+                            <constraint firstItem="cPR-vf-CRN" firstAttribute="top" secondItem="dvc-o8-9bp" secondAttribute="bottom" constant="8" id="bLM-dj-Rwu"/>
+                            <constraint firstItem="cPR-vf-CRN" firstAttribute="width" secondItem="7bd-L0-rGz" secondAttribute="width" multiplier="4/5" id="e63-HX-qeE"/>
                             <constraint firstItem="dvc-o8-9bp" firstAttribute="width" secondItem="7bd-L0-rGz" secondAttribute="width" multiplier="9/10" id="fb0-jn-HCh"/>
                             <constraint firstItem="dvc-o8-9bp" firstAttribute="top" secondItem="7bd-L0-rGz" secondAttribute="top" constant="20" id="lyI-Xe-aVt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7bd-L0-rGz"/>
                     </view>
                     <connections>
+                        <outlet property="editButtonOutlet" destination="hxZ-4z-wRu" id="2ZP-se-fIw"/>
                         <outlet property="emailLabel" destination="RBP-a6-tA3" id="QVm-mO-jJK"/>
+                        <outlet property="emailTextField" destination="gCw-X8-8a2" id="lat-2u-nJX"/>
+                        <outlet property="firstNameTextField" destination="Ewp-uq-0zq" id="DOW-bq-vOt"/>
                         <outlet property="imageView" destination="5rc-Yw-pVD" id="xmz-ee-Qrp"/>
+                        <outlet property="lastNameTextField" destination="e6V-uf-LY7" id="jiB-MA-Cu8"/>
                         <outlet property="nameLabel" destination="hu0-Mq-JQz" id="ug2-hj-bfU"/>
+                        <outlet property="textFieldStack" destination="S5i-2m-0Qm" id="C0I-D0-bdG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jBY-9b-ife" userLabel="First Responder" sceneMemberID="firstResponder"/>

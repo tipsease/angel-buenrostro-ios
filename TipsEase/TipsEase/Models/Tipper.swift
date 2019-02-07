@@ -31,3 +31,13 @@ struct Tipper: Codable, Equatable {
     }
 }
 
+struct TipperKai: Codable, Equatable {
+    var first_name, last_name, email: String
+    
+    init(first_name: String, last_name: String, email: String){
+        self.first_name = first_name
+        self.last_name = last_name
+        self.email = email
+    }
+}
+

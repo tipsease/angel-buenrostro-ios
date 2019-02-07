@@ -193,9 +193,8 @@ class TipperController: Codable {
             }.resume()
     }
     
-    func updateTipper(id: Int, first_name: String?, last_name: String?, email: String?, photo_url: String?){
+    func updateTipper(id: Int, first_name: String?, last_name: String?, email: String?) -> TipperKai{
         var url = baseURL
-        url.appendPathComponent("tippers")
         url.appendPathComponent(String(id))
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
@@ -203,17 +202,55 @@ class TipperController: Codable {
         searchTipper(id: id) { (error) in
             print("tipperToUpdate was called")
         }
-        var tipperToUpdate = self.tippers[0]
+        var tipperToUpdate = TipperKai(first_name: first_name!, last_name: last_name!, email: email!)
 //        tipperToUpdate.first_name =
 //        tipperToUpdate.last_name =
 //        tipperToUpdate.email =
 //        tipperToUpdate.photo_url =
         
         let encoder = JSONEncoder()
-        let postDate = try! encoder.encode(tipper)
+        print("\(tipperToUpdate)")
+        let postData = try! encoder.encode(tipperToUpdate)
+        request.httpBody = postData
+        print("This is the update PostData:\(postData)")
+        
+        URLSession.shared.dataTask(with: request){
+            (data, response, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            guard let data = data else {
+                print("data not found")
+                return
+            }
+            let httpResponse = response as? HTTPURLResponse
+            print(httpResponse)
+            
+            }.resume()
+        return tipperToUpdate
+        print("tipper was UPDATED in the DB")
     }
     
-    func deleteTipper(){
+    func deleteTipper(id: Int, completion: @escaping(Error?)-> Void){
+        var url = baseURL
+        url.appendPathComponent(String(id))
+        print(url)
+        var request = URLRequest(url: url)
+        request.httpMethod = "DEL"
         
+        URLSession.shared.dataTask(with: request){ (_, response, error) in
+            if let error = error {
+                print(error)
+                completion(error)
+                return
+            }
+            let httpResponse = response as? HTTPURLResponse
+            print(httpResponse)
+            
+            }.resume()
+        print("A tipper was deleted")
     }
+
 }

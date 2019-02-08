@@ -17,7 +17,7 @@
 		A25CD729220A0BD70082F4EE /* TipperController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25CD728220A0BD70082F4EE /* TipperController.swift */; };
 		A25CD72B220A4B400082F4EE /* TippeeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25CD72A220A4B400082F4EE /* TippeeController.swift */; };
 		A262D8DF220C8CFA008DE1CA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A262D8DE220C8CFA008DE1CA /* StoreKit.framework */; };
-		A262D8E1220CF24C008DE1CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A262D8E0220CF24B008DE1CA /* Assets.xcassets */; };
+		A262D8E3220DCF36008DE1CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A262D8E2220DCF36008DE1CA /* Assets.xcassets */; };
 		A28116AD220B5895003C47D7 /* tipAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28116AC220B5895003C47D7 /* tipAuthentication.swift */; };
 		A28116AF220B9546003C47D7 /* TippeeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28116AE220B9546003C47D7 /* TippeeTableViewController.swift */; };
 		A28116B7220C8047003C47D7 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28116B6220C8047003C47D7 /* AccountViewController.swift */; };
@@ -36,7 +36,7 @@
 		A25CD728220A0BD70082F4EE /* TipperController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipperController.swift; sourceTree = "<group>"; };
 		A25CD72A220A4B400082F4EE /* TippeeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TippeeController.swift; sourceTree = "<group>"; };
 		A262D8DE220C8CFA008DE1CA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		A262D8E0220CF24B008DE1CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../Downloads/Assets.xcassets; sourceTree = "<group>"; };
+		A262D8E2220DCF36008DE1CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A28116AC220B5895003C47D7 /* tipAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tipAuthentication.swift; sourceTree = "<group>"; };
 		A28116AE220B9546003C47D7 /* TippeeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TippeeTableViewController.swift; sourceTree = "<group>"; };
 		A28116B6220C8047003C47D7 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -78,8 +78,8 @@
 				A25CD7202208F6C00082F4EE /* Views */,
 				A25CD723220913140082F4EE /* Controllers */,
 				A25CD7112208A03F0082F4EE /* Main.storyboard */,
-				A262D8E0220CF24B008DE1CA /* Assets.xcassets */,
 				A25CD7162208A0400082F4EE /* LaunchScreen.storyboard */,
+				A262D8E2220DCF36008DE1CA /* Assets.xcassets */,
 				A25CD7192208A0400082F4EE /* Info.plist */,
 				A25CD70D2208A03F0082F4EE /* AppDelegate.swift */,
 			);
@@ -188,7 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A25CD7182208A0400082F4EE /* LaunchScreen.storyboard in Resources */,
-				A262D8E1220CF24C008DE1CA /* Assets.xcassets in Resources */,
+				A262D8E3220DCF36008DE1CA /* Assets.xcassets in Resources */,
 				A25CD7132208A03F0082F4EE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,7 +355,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HEVSJ2C5DD;
 				INFOPLIST_FILE = TipsEase/Info.plist;
@@ -374,7 +373,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HEVSJ2C5DD;
 				INFOPLIST_FILE = TipsEase/Info.plist;

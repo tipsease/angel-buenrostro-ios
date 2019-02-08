@@ -74,7 +74,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tipsEaseiOS" translatesAutoresizingMaskIntoConstraints="NO" id="plG-d6-oWM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="plG-d6-oWM">
                                 <rect key="frame" x="107.66666666666669" y="44" width="160" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="E7p-P0-xvE"/>
@@ -477,6 +477,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tipsEaseiOS" width="1024" height="1024"/>
+        <image name="LaunchImage" width="1024" height="1024"/>
     </resources>
 </document>

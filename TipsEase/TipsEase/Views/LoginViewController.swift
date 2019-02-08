@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     var tippeeController = TippeeController()
     var tipper: Tipper? = nil
     
+    @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -71,16 +72,20 @@ class LoginViewController: UIViewController {
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! TippeeTableViewController
-        destinationVC.tipperController = self.tipperController
-        destinationVC.tipper = self.tipper
-        
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let destinationVC = segue.destination as! UINavigationController
+//        destinationVC.tipperController = self.tipperController
+//        destinationVC.tipper = self.tipper
+//
+//    }
 }
 
 extension LoginViewController {
     func setUp(){
+        
+        logoImageView.setRadiusWithShadow(color: UIColor.black.cgColor)
+        logoImageView.layer.cornerRadius = logoImageView.frame.height/2
+        logoImageView.clipsToBounds = true
         userNameTextField.layer.cornerRadius = 20
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
         loginButton.setRadiusWithShadow(CGFloat(20), color: UIColor.darkGray.cgColor)

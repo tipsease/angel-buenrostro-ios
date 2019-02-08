@@ -16,6 +16,10 @@ class TipViewController: UIViewController {
     var tipper: Tipper?
     var tippee: Tippee?
 
+    @IBOutlet weak var fiveButton: UIButton!
+    @IBOutlet weak var tenButton: UIButton!
+    @IBOutlet weak var fifteenButton: UIButton!
+    @IBOutlet weak var twentyButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tipTextField: UITextField!
     @IBOutlet weak var confirmTipButton: UIButton!
@@ -94,6 +98,7 @@ class TipViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
 
     /*
     // MARK: - Navigation
@@ -109,6 +114,11 @@ class TipViewController: UIViewController {
 
 extension TipViewController {
     func setUp(){
+        fiveButton.setRadiusWithShadow(color: UIColor.lightGray.cgColor)
+        tenButton.setRadiusWithShadow(color: UIColor.lightGray.cgColor)
+        fifteenButton.setRadiusWithShadow(color: UIColor.lightGray.cgColor)
+        twentyButton.setRadiusWithShadow(color: UIColor.lightGray.cgColor)
+        
         confirmTipButton.setRadiusWithShadow(CGFloat(20), color: UIColor.darkGray.cgColor)
         self.navigationItem.title = (tippee?.first_name)! + " " + (tippee?.last_name)!
         let url = URL(string: (tippee?.photo_url)!)

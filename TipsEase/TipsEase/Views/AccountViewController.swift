@@ -30,12 +30,23 @@ class AccountViewController: UIViewController {
             textFieldStack.alpha = 1.0
             editButtonOutlet.setTitle("Save Changes", for: .normal)
         } else {
+            if firstNameTextField.text == "" || lastNameTextField.text == "" || emailTextField.text == "" {
+                let alert = UIAlertController(title: "Oops!", message: "All fields are required.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true)
+                return
+            }
+            
+            
+            
+            
             editButtonOutlet.setTitle("Edit Profile", for: .normal)
             editBool = !editBool
             DispatchQueue.main.async {
                 self.tipperKai = self.tipperController?.updateTipper(id: self.tipper!.id!, first_name: self.firstNameTextField.text, last_name: self.lastNameTextField.text, email: self.emailTextField.text)
                 self.updateView()
-                let alert = UIAlertController(title: "Saved Changes", message: "You profile was updated.", preferredStyle: .alert)
+                // TODO: Update outgoing Tipper object to new values stored in DB
+                let alert = UIAlertController(title: "Saved Changes", message: "Your profile was updated.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alert, animated: true)
             }

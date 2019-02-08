@@ -32,7 +32,6 @@ class TipperController: Codable {
         
         let postData = try! encoder.encode(tipperAuthentication)
         
-        //    let postData = try! encoder.encode(tipper)
         request.httpBody = postData
         print("\(postData)")
         
@@ -47,11 +46,6 @@ class TipperController: Codable {
                 print("data not found")
                 return
             }
-//            print("The data unDecoded is: \(data)")
-//            let decoder = JSONDecoder()
-//            let dataDecoded = try! decoder.decode(loginResponse.self, from: data)
-//            self.tipper = Tipper(first_name: dataDecoded.first_name, last_name: dataDecoded.last_name, email: dataDecoded.email)
-//            print("The dataDecoded is: \(dataDecoded)")
             let httpResponse = response as? HTTPURLResponse
             print("This is the response:\(httpResponse!)")
             
@@ -202,11 +196,7 @@ class TipperController: Codable {
         searchTipper(id: id) { (error) in
             print("tipperToUpdate was called")
         }
-        var tipperToUpdate = TipperKai(first_name: first_name!, last_name: last_name!, email: email!)
-//        tipperToUpdate.first_name =
-//        tipperToUpdate.last_name =
-//        tipperToUpdate.email =
-//        tipperToUpdate.photo_url =
+        let tipperToUpdate = TipperKai(first_name: first_name!, last_name: last_name!, email: email!)
         
         let encoder = JSONEncoder()
         print("\(tipperToUpdate)")
